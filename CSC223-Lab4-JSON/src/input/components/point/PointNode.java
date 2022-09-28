@@ -1,5 +1,6 @@
 package input.components.point;
 
+import input.components.ComponentNode;
 import utilities.math.MathUtilities;
 
 /**
@@ -9,7 +10,7 @@ import utilities.math.MathUtilities;
  * @date 08/31/2022
  */
 
-public class PointNode {
+public class PointNode implements ComponentNode{
 	
 	protected static final String ANONYMOUS = "__UNNAMED";
 
@@ -90,5 +91,11 @@ public class PointNode {
 	@Override
 	public String toString() {
 		return this.getName() + "(" + this.getX() + ", " + this.getY() + ")";
+	}
+
+	@Override
+	public void unparse(StringBuilder sb, int level) {
+		// TODO Auto-generated method stub
+		
 	}
 }

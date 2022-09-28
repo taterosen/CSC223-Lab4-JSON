@@ -4,6 +4,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
+import input.components.ComponentNode;
 import utilities.math.MathUtilities;
 
 /**
@@ -11,7 +12,7 @@ import utilities.math.MathUtilities;
  * @author georgelamb
  * @date Wed September 7 2022
  */
-public class PointNodeDatabase {
+public class PointNodeDatabase implements ComponentNode {
 	protected Set<PointNode> _points;
 
 	/**
@@ -97,6 +98,11 @@ public class PointNodeDatabase {
 		}
 		return null;
 
+	}
+	@Override
+	public void unparse(StringBuilder sb, int level) {
+		// TODO Auto-generated method stub
+		
 	}
 
 

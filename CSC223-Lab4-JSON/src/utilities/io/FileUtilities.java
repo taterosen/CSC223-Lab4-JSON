@@ -42,7 +42,7 @@ public class FileUtilities
 		    while ((line = br.readLine()) != null) 
 		    {
 		    	// Filter out '//'-style comments
-		    	int commentIndex = line.indexOf(global.copy.Constants.INPUT_FILE_COMMENT_PREFIX);
+		    	int commentIndex = line.indexOf(global.Constants.INPUT_FILE_COMMENT_PREFIX);
 		    	if (commentIndex != -1) line = line.substring(0, commentIndex);
 		    	
 		    	if (line.length() >= 1) builder.append(line).append("\n");

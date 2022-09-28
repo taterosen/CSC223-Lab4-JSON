@@ -1,5 +1,6 @@
 package input.components.segment;
 
+import input.components.ComponentNode;
 import input.components.point.PointNode;
 
 import java.util.*;
@@ -11,7 +12,7 @@ import java.util.Map.Entry;
  * @author brycenaddison
  * @date Wed Aug 31 2022
  */
-public class SegmentNodeDatabase {
+public class SegmentNodeDatabase implements ComponentNode {
     protected Map<PointNode, Set<PointNode>> _adjLists;
 
     /**
@@ -109,4 +110,10 @@ public class SegmentNodeDatabase {
         Set<SegmentNode> set = new HashSet<>(this.asSegmentList());
         return new ArrayList<>(set);
     }
+
+	@Override
+	public void unparse(StringBuilder sb, int level) {
+		// TODO Auto-generated method stub
+		
+	}
 }
