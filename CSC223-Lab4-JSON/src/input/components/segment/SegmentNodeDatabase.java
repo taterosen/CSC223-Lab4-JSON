@@ -9,7 +9,7 @@ import java.util.Map.Entry;
 /**
  * Stores line segments as an adjacency list.
  *
- * @author brycenaddison
+ * @author brycenaddison, taterosen, georgelamb
  * @date Wed Aug 31 2022
  */
 public class SegmentNodeDatabase implements ComponentNode {

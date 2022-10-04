@@ -9,7 +9,7 @@ import utilities.math.MathUtilities;
 
 /**
  * Stores Point Nodes in LinkedHashSet
- * @author georgelamb
+ * @author georgelamb, taterosen, brycenaddison
  * @date Wed September 7 2022
  */
 public class PointNodeDatabase implements ComponentNode {
@@ -99,6 +99,21 @@ public class PointNodeDatabase implements ComponentNode {
 		return null;
 
 	}
+	
+	/**
+	 * 
+	 * @param x value to get node of
+	 * @param y value to get node of
+	 * @return node to get
+	 */
+	public PointNode getPoint(String name) {
+		for (PointNode p: this._points) {
+			if (p._name == name) return p;
+		}
+		return null;
+
+	}
+	
 	@Override
 	public void unparse(StringBuilder sb, int level) {
 		// TODO Auto-generated method stub
