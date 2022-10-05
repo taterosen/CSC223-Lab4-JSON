@@ -120,6 +120,10 @@ public class PointNodeDatabase implements ComponentNode {
 
 	}
 	
+	/**
+	 * Unparses the parts of a PointNodeDatabase and puts them into
+	 * a given StringBuilder object.
+	 */
 	@Override
 	public void unparse(StringBuilder sb, int level) {
 		sb.append(indent(level) + "Points:\n" + indent(level) +  "{\n");

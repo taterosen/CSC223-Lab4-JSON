@@ -111,6 +111,10 @@ public class SegmentNodeDatabase implements ComponentNode {
         return new ArrayList<>(set);
     }
 
+    /**
+	 * Unparses the parts of a SegmentNodeDataBase and puts them into
+	 * a given StringBuilder object.
+	 */
 	@Override
 	public void unparse(StringBuilder sb, int level) {
 		sb.append(indent(level) + "Segments:\n" + indent(level) + "{\n");

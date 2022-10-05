@@ -105,13 +105,13 @@ public class JSONParser
 	 * @param figure JSONObject for the figure
 	 * @return String value for the "Description" key
 	 */
-	private String parseDescription(String figure)
+	private String parseDescription(String description)
 	{
-		return figure;
+		return description;
 	}
 	
 	/**
-	 * Convert JSONObject points to PointNodes and add to database
+	 * Convert JSONObject points to PointNodes and add to PointNodeDatabase.
 	 * @param arr JSONArray of points
 	 * @return PointNodeDatabase of PointNode objects for the figure
 	 */
@@ -131,7 +131,8 @@ public class JSONParser
 	}
 	
 	/**
-	 * 
+	 * Parses a JSONArray of segments in a JSON file and 
+	 * puts them into a SegmentNodeDatabase. 
 	 * @param arr JSONArray of JSONObject segments
 	 * @param points PointNodeDataBase of PointNode s
 	 * @return SegmentNodeDatabase for the figure
@@ -158,12 +159,6 @@ public class JSONParser
 		return snd;
 	}
 	
-	/**
-	 * 
-	 * @param arr JSONArray
-	 * @param points PointNodeDatabase of points
-	 * @return List<PointNode> of points for the segment
-	 */
 	private List<PointNode> parseSegmentsHelper(JSONArray arr, PointNodeDatabase points)
 	{
 		List<PointNode> edgeEnds = new ArrayList<>();

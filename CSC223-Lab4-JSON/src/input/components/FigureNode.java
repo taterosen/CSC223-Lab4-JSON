@@ -29,6 +29,10 @@ public class FigureNode implements ComponentNode
 		_segments = segments;
 	}
 
+	/**
+	 * Unparses the parts of a FigureNode and puts them into
+	 * a given StringBuilder object.
+	 */
 	@Override
 	public void unparse(StringBuilder sb, int level)
 	{
