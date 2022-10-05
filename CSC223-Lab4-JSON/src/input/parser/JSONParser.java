@@ -19,16 +19,30 @@ public class JSONParser
 {
 	protected ComponentNode  _astRoot;
 
+	/**
+	 * constructor. sets _astRoot to null
+	 */
 	public JSONParser()
 	{
 		_astRoot = null;
 	}
 
-	private void error(String message)
+	/**
+	 * throws ParseException with message passed in
+	 * @param message explanation of error
+	 * @throws ParseException
+	 */
+	private void error(String message) throws ParseException
 	{
 		throw new ParseException("Parse error: " + message);
 	}
 
+	/**
+	 * Parse a string into a tree
+	 * @param str String to parse
+	 * @return ComponentNode, the root of the tree built from str
+	 * @throws ParseException
+	 */
 	public ComponentNode parse(String str) throws ParseException
 	{
 		// Parsing is accomplished via the JSONTokenizer class.
@@ -47,6 +61,11 @@ public class JSONParser
 		return root;
 	}
 	
+	/**
+	 * 
+	 * @param figure
+	 * @return 
+	 */
 	private String parseDescription(JSONObject figure) {
 		return figure.getString("Description");
 	}
