@@ -17,7 +17,7 @@ class JSONParserTest
 		JSONParser parser = new JSONParser();
 
 		String figureStr = utilities.io.FileUtilities.readFileFilterComments(filename);
-		
+		System.out.print(figureStr);
 		return parser.parse(figureStr);
 	}
 	
@@ -32,12 +32,12 @@ class JSONParserTest
 	@Test
 	void single_triangle_test()
 	{
-		ComponentNode node = JSONParserTest.runFigureParseTest("single_triangle.json");
+		ComponentNode node = JSONParserTest.runFigureParseTest("jsonfiles/single_triangle.json");
 
 		//assertTrue(node instanceof FigureNode);
 		
-		//StringBuilder sb = new StringBuilder();
-		//node.unparse(sb, 0);
-		//System.out.println(sb.toString());
+		StringBuilder sb = new StringBuilder();
+		node.unparse(sb, 0);
+		System.out.println(sb.toString());
 	}
 }

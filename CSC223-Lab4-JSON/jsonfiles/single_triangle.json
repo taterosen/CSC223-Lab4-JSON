@@ -1,7 +1,6 @@
-{
-  "Figure" :
-  {
-    "Description" : "Right Triangle in the first quadrant.",
+{ 
+"Figure" :
+  { "Description" : "Right Triangle in the first quadrant.",
     "Points" :
 	  [
 	    {
