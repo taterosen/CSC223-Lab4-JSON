@@ -67,7 +67,7 @@ class JSONParserTest
 	}
 
 	@Test
-	void trinagle_four_test()
+	void triangle_four_test()
 	{
 		ComponentNode node = JSONParserTest.runFigureParseTest("jsonfiles/trianglefourpoints.json");
 
@@ -116,6 +116,18 @@ class JSONParserTest
 	void fully_connected_irregular_polygon()
 	{
 		ComponentNode node = JSONParserTest.runFigureParseTest("jsonfiles/fully_connected_irregular_polygon.json");
+
+		assertTrue(node instanceof FigureNode);
+		
+		StringBuilder sb = new StringBuilder();
+		node.unparse(sb, 0);
+		System.out.println(sb.toString());
+	}
+	
+	@Test
+	void house()
+	{
+		ComponentNode node = JSONParserTest.runFigureParseTest("jsonfiles/house.json");
 
 		assertTrue(node instanceof FigureNode);
 		

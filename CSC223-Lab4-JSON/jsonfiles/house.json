@@ -1,24 +1,24 @@
-{“Figure” :
-	{ “Description” : “Two base Triangles with triangle on top like a house, line in center of roof triangle .”,
-		“Points” : [
-			{ “name”: “A”, “x” : 0, “y” : 0 },
-			{ “name”: “B”, “x” : 0, “y” : 8 },
-			{ “name”: “C”, “x” : 8, “y” : 0 },
-			{ “name”: “D”, “x” : 8, “y” : 8},
-			{ “name”: “E”, “x” : 4, “y” : 10},
-			{ “name”: “F”, “x” : 4, “y” : 8}
+{"Figure" :
+	{ "Description" : " house .",
+		"Points" : [
+			{ "name": "A", "x" : 0, "y" : 0 },
+			{ "name": "B", "x" : 0, "y" : 8 },
+			{ "name": "C", "x" : 8, "y" : 0 },
+			{ "name": "D", "x" : 8, "y" : 8},
+			{ "name": "E", "x" : 4, "y" : 10},
+			{ "name": "F", "x" : 4, "y" : 8}
 		],
 
-		“Segments” :  [
-			{“A” : [“A”, “B”] },
-			{“B” : [“D”, “C”] },
-			{“C” : [“F”, “B”] },
-			{“D” : [“A”, “F”] },
-			{“E” : [“C”, “F”] },
-			{“F” : [“F”, “D”] },
-			{“G” : [“F”, “E”] },
-			{“H” : [“B”, “E”] },
-			{“I” : [“D, “E”] },
+		"Segments" :  [
+			{"A" : ["A", "B"] },
+			{"B" : ["D", "C"] },
+			{"C" : ["F", "B"] },
+			{"D" : ["A", "F"] },
+			{"E" : ["C", "F"] },
+			{"F" : ["F", "D"] },
+			{"G" : ["F", "E"] },
+			{"H" : ["B", "E"] },
+			{"I" : ["D", "E"] }
 		]
 	}
 }
