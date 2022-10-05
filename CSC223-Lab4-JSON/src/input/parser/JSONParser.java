@@ -79,7 +79,7 @@ public class JSONParser
 		//try json test
 		try
 			{
-				JSONroot.getJSONObject("Figure");
+				JSONroot.getJSONObject(JSON_Constants.JSON_FIGURE);
 			}
 				
 		catch (JSONException e)
@@ -88,12 +88,12 @@ public class JSONParser
 			}
 
         // TODO: Build the whole AST, check for return class object, and return the root
-		JSONObject fig = JSONroot.getJSONObject("Figure");
+		JSONObject fig = JSONroot.getJSONObject(JSON_Constants.JSON_FIGURE);
 
-		String description = parseDescription(fig.getString("Description"));
-		PointNodeDatabase points = parsePoints(fig.getJSONArray("Points"));
+		String description = parseDescription(fig.getString(JSON_Constants.JSON_DESCRIPTION));
+		PointNodeDatabase points = parsePoints(fig.getJSONArray(JSON_Constants.JSON_POINT_S));
 		
-		SegmentNodeDatabase segments = parseSegments(fig.getJSONArray("Segments"), points);
+		SegmentNodeDatabase segments = parseSegments(fig.getJSONArray(JSON_Constants.JSON_SEGMENTS), points);
 		
 		FigureNode root = new FigureNode(description, points, segments);
 		
@@ -122,8 +122,8 @@ public class JSONParser
 		for(int i = 0; i < arr.length(); i++)
 		{
 			JSONObject JSONpoint = arr.getJSONObject(i);
-			PointNode point = new PointNode(JSONpoint.getString("name"), JSONpoint.getInt("x"),
-											JSONpoint.getInt("y"));
+			PointNode point = new PointNode(JSONpoint.getString(JSON_Constants.JSON_NAME), JSONpoint.getInt(JSON_Constants.JSON_X),
+											JSONpoint.getInt(JSON_Constants.JSON_Y));
 			points.put(point);
 		}
 		
