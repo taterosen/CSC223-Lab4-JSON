@@ -34,7 +34,51 @@ class JSONParserTest
 	{
 		ComponentNode node = JSONParserTest.runFigureParseTest("jsonfiles/single_triangle.json");
 
-		//assertTrue(node instanceof FigureNode);
+		assertTrue(node instanceof FigureNode);
+		
+		StringBuilder sb = new StringBuilder();
+		node.unparse(sb, 0);
+		System.out.println(sb.toString());
+	}
+	@Test
+	void point_test()
+	{
+		ComponentNode node = JSONParserTest.runFigureParseTest("jsonfiles/point.json");
+
+		assertTrue(node instanceof FigureNode);
+		
+		StringBuilder sb = new StringBuilder();
+		node.unparse(sb, 0);
+		System.out.println(sb.toString());
+	}
+	@Test
+	void line_seg_test()
+	{
+		ComponentNode node = JSONParserTest.runFigureParseTest("jsonfiles/lineseg.json");
+
+		assertTrue(node instanceof FigureNode);
+		
+		StringBuilder sb = new StringBuilder();
+		node.unparse(sb, 0);
+		System.out.println(sb.toString());
+	}
+	@Test
+	void trinagle_four_test()
+	{
+		ComponentNode node = JSONParserTest.runFigureParseTest("jsonfiles/trianglefourpoints.json");
+
+		assertTrue(node instanceof FigureNode);
+		
+		StringBuilder sb = new StringBuilder();
+		node.unparse(sb, 0);
+		System.out.println(sb.toString());
+	}
+	@Test
+	void snake_test()
+	{
+		ComponentNode node = JSONParserTest.runFigureParseTest("jsonfiles/snake.json");
+
+		assertTrue(node instanceof FigureNode);
 		
 		StringBuilder sb = new StringBuilder();
 		node.unparse(sb, 0);
