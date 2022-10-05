@@ -95,7 +95,7 @@ public class PointNode implements ComponentNode{
 
 	@Override
 	public void unparse(StringBuilder sb, int level) {
-		// TODO Auto-generated method stub
-		
+		sb.append(indent(level) +"Point(" + this._name + ")(" + this._x + 
+					", " + this._y + ")\n");
 	}
 }
