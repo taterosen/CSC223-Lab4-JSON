@@ -114,7 +114,7 @@ public class PointNodeDatabase implements ComponentNode {
 	 */
 	public PointNode getPoint(String name) {
 		for (PointNode p: this._points) {
-			if (p._name == name) return p;
+			if (p._name.equals(name)) return p;
 		}
 		return null;
 

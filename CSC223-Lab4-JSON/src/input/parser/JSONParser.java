@@ -76,7 +76,6 @@ public class JSONParser
 		JSONTokener tokenizer = new JSONTokener(str);
 		JSONObject  JSONroot = (JSONObject)tokenizer.nextValue();
 		
-		//try json test
 		try
 			{
 				JSONroot.getJSONObject(JSON_Constants.JSON_FIGURE);
@@ -87,7 +86,6 @@ public class JSONParser
 				throw new ParseException(e);
 			}
 
-        // TODO: Build the whole AST, check for return class object, and return the root
 		JSONObject fig = JSONroot.getJSONObject(JSON_Constants.JSON_FIGURE);
 
 		String description = parseDescription(fig.getString(JSON_Constants.JSON_DESCRIPTION));
@@ -169,5 +167,4 @@ public class JSONParser
 		
 		return edgeEnds;
 	}
-
 }
