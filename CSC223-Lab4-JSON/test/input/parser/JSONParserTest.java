@@ -63,7 +63,7 @@ class JSONParserTest
 		System.out.println(sb.toString());
 	}
 	@Test
-	void trinagle_four_test()
+	void triangle_four_test()
 	{
 		ComponentNode node = JSONParserTest.runFigureParseTest("jsonfiles/trianglefourpoints.json");
 
