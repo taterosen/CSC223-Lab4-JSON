@@ -89,8 +89,8 @@ public class JSONParser
 
         // TODO: Build the whole AST, check for return class object, and return the root
 		JSONObject fig = JSONroot.getJSONObject("Figure");
-		
-		String description = parseDescription(fig.getJSONObject("Description"));
+
+		String description = parseDescription(fig.getString("Description"));
 		PointNodeDatabase points = parsePoints(fig.getJSONArray("Points"));
 		SegmentNodeDatabase segments = parseSegments(fig.getJSONArray("Segments"), points);
 		
@@ -104,9 +104,9 @@ public class JSONParser
 	 * @param figure JSONObject for the figure
 	 * @return String value for the "Description" key
 	 */
-	private String parseDescription(JSONObject figure)
+	private String parseDescription(String figure)
 	{
-		return figure.getString("Description");
+		return figure;
 	}
 	
 	/**
@@ -165,7 +165,7 @@ public class JSONParser
 	 */
 	private List<PointNode> parseSegmentsHelper(JSONArray arr, PointNodeDatabase points)
 	{
-		List<PointNode> edgeEnds = null;
+		List<PointNode> edgeEnds = new ArrayList<>();
 		for(int i = 0; i < arr.length(); i++)
 		{
 			edgeEnds.add(points.getPoint(arr.getString(i)));
