@@ -1,3 +1,11 @@
+//          G   H
+//         / \ / \
+//        /   I   \
+//       E\  / \ /F        
+//          C---D
+//          |   |
+//          A---B
+
 {"Figure" :
 	{ "Description" : "Tri Quad Shape .",
 		"Points" : [
