@@ -135,4 +135,16 @@ class JSONParserTest
 		node.unparse(sb, 0);
 		System.out.println(sb.toString());
 	}
+	
+	@Test
+	void Tri_Quad()
+	{
+		ComponentNode node = JSONParserTest.runFigureParseTest("jsonfiles/Tri_Quad.json");
+
+		assertTrue(node instanceof FigureNode);
+		
+		StringBuilder sb = new StringBuilder();
+		node.unparse(sb, 0);
+		System.out.println(sb.toString());
+	}
 }
