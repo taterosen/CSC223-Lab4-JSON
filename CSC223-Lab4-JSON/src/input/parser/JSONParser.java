@@ -48,6 +48,17 @@ public class JSONParser
 		// Parsing is accomplished via the JSONTokenizer class.
 		JSONTokener tokenizer = new JSONTokener(str);
 		JSONObject  JSONroot = (JSONObject)tokenizer.nextValue();
+		
+		//try json test
+		try
+			{
+				JSONroot.getJSONObject("Figure");
+			}
+				
+		catch (JSONException e)
+			{
+				throw new ParseException(e);
+			}
 
         // TODO: Build the whole AST, check for return class object, and return the root
 		JSONObject fig = JSONroot.getJSONObject("Figure");

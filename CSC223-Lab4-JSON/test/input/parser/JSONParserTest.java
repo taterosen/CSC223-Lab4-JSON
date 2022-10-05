@@ -12,32 +12,32 @@ import input.exception.ParseException;
 
 class JSONParserTest
 {
-//	public static ComponentNode runFigureParseTest(String filename)
-//	{
-//		JSONParser parser = new JSONParser();
-//
-//		String figureStr = utilities.io.FileUtilities.readFileFilterComments(filename);
-//		
-//		return parser.parse(figureStr);
-//	}
-//	
-//	@Test
-//	void empty_json_string_test()
-//	{
-//		JSONParser parser = new JSONParser();
-//
-//		assertThrows(ParseException.class, () -> { parser.parse("{}"); });
-//	}
+	public static ComponentNode runFigureParseTest(String filename)
+	{
+		JSONParser parser = new JSONParser();
+
+		String figureStr = utilities.io.FileUtilities.readFileFilterComments(filename);
+		
+		return parser.parse(figureStr);
+	}
+	
+	@Test
+	void empty_json_string_test()
+	{
+		JSONParser parser = new JSONParser();
+
+		assertThrows(ParseException.class, () -> { parser.parse("{}"); });
+	}
 
 	@Test
 	void single_triangle_test()
 	{
 		ComponentNode node = JSONParserTest.runFigureParseTest("single_triangle.json");
 
-		assertTrue(node instanceof FigureNode);
+		//assertTrue(node instanceof FigureNode);
 		
-		StringBuilder sb = new StringBuilder();
-		node.unparse(sb, 0);
-		System.out.println(sb.toString());
+		//StringBuilder sb = new StringBuilder();
+		//node.unparse(sb, 0);
+		//System.out.println(sb.toString());
 	}
 }
