@@ -23,6 +23,7 @@ public class PointNodeDatabase implements ComponentNode {
 		_points = new LinkedHashSet<PointNode>();
 
 	}
+	
 	/**
 	 * create PointNodeDatabase with list of point nodes in it
 	 * @param list of PointNodes 
@@ -32,6 +33,7 @@ public class PointNodeDatabase implements ComponentNode {
 		_points = new LinkedHashSet<PointNode>(list);
 
 	}
+	
 	/**
 	 * @param node to put into database
 	 */
@@ -48,6 +50,7 @@ public class PointNodeDatabase implements ComponentNode {
 		return this.getPoint(node) != null;
 
 	}
+	
 	/**
 	 * 
 	 * @param x value of node
@@ -57,6 +60,7 @@ public class PointNodeDatabase implements ComponentNode {
 	public boolean contains(double x, double y) {
 		return this.getPoint(x, y) != null;
 	}
+	
 	/**
 	 * 
 	 * @param node to get name of
@@ -65,6 +69,7 @@ public class PointNodeDatabase implements ComponentNode {
 	public String getName(PointNode node) {
 		return this.getPoint(node).getName();
 	}
+	
 	/**
 	 * 
 	 * @param x value of node to get name of 
@@ -75,6 +80,7 @@ public class PointNodeDatabase implements ComponentNode {
 		return this.getPoint(x, y).getName();
 
 	}
+	
 	/**
 	 * 
 	 * @param node to get node of 
@@ -116,8 +122,13 @@ public class PointNodeDatabase implements ComponentNode {
 	
 	@Override
 	public void unparse(StringBuilder sb, int level) {
-		// TODO Auto-generated method stub
+		sb.append(indent(level) + "Points:\n" + indent(level) +  "{\n");
 		
+		for(PointNode p : _points) {
+			p.unparse(sb, level + 1);
+		}
+		
+		sb.append(indent(level) + "}\n");
 	}
 
 

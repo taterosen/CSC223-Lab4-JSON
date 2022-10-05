@@ -32,6 +32,20 @@ public class FigureNode implements ComponentNode
 	@Override
 	public void unparse(StringBuilder sb, int level)
 	{
-        // TODO
+		sb.append(indent(level) + "Figure\n{\n");
+		
+        // unparse description
+		sb.append(indent(level + 1) + "Description : \"" + _description + "\"\n");
+		
+		//unparse points
+		this._points.unparse(sb, level + 1);
+		
+		//unparse segments
+		this._segments.unparse(sb, level + 1);
+		
+		sb.append(indent(level) + "}\n");
+		
+		System.out.println(sb.toString());
     }
+	
 }
