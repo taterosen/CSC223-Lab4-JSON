@@ -36,23 +36,23 @@ public class JSONParser
 		JSONObject  JSONroot = (JSONObject)tokenizer.nextValue();
 
         // TODO: Build the whole AST, check for return class object, and return the root
+		JSONObject fig = JSONroot.getJSONObject("Figure");
 		
-		String description = parseDescription(JSONroot.getJSONObject("Figure"));
-		PointNodeDatabase points = parsePoints(JSONroot.getJSONObject("Figure"));
-		SegmentNodeDatabase segments = parseSegments(JSONroot.getJSONObject("Figure"));
+		String description = parseDescription(fig.getJSONObject("Description"));
+		PointNodeDatabase points = parsePoints(fig.getJSONArray("Points"));
+		SegmentNodeDatabase segments = parseSegments(fig.getJSONArray("Segments"), points);
 		
 		FigureNode root = new FigureNode(description, points, segments);
 		
 		return root;
 	}
 	
-	public String parseDescription(JSONObject figure) {
+	private String parseDescription(JSONObject figure) {
 		return figure.getString("Description");
 	}
 	
-	public PointNodeDatabase parsePoints(JSONObject figure) {
+	private PointNodeDatabase parsePoints(JSONArray arr) {
 		PointNodeDatabase points = new PointNodeDatabase();
-		JSONArray arr = figure.getJSONArray("Points");
 		
 		for(int i = 0; i < arr.length(); i++) {
 			JSONObject JSONpoint = arr.getJSONObject(i);
@@ -64,15 +64,10 @@ public class JSONParser
 		return points;
 	}
 	
-	public SegmentNodeDatabase parseSegments(JSONObject figure) {
+	private SegmentNodeDatabase parseSegments(JSONArray arr, PointNodeDatabase points) {
 		SegmentNodeDatabase snd = new SegmentNodeDatabase();
-		JSONArray arr = figure.getJSONArray("Segments");
-		PointNodeDatabase points = parsePoints(figure);
 		
-		
-		
-		
-		for(int i = 0; i < arr.length(); i++) {
+		for(int i = 0; i <= arr.length(); i++) {
 			JSONObject JSONseg = arr.getJSONObject(i);
 			
 			Iterator<String> segKeys = JSONseg.keys();
@@ -80,18 +75,23 @@ public class JSONParser
 
 			PointNode edgeStart = points.getPoint(currentKey);
 			
-			
-			// **STILL WORKING ON THIS!!**
-			List<PointNode> edgeEnds = new ArrayList<PointNode>();
+			JSONArray JSONedgeEnds = JSONseg.getJSONArray(currentKey);
+			List<PointNode> edgeEnds = parseSegmentsHelper(JSONedgeEnds, points);
 			
 			snd.addAdjacencyList(edgeStart, edgeEnds);
-			
-						
 		}
 		
 		return snd;
 	}
+	
+	private List<PointNode> parseSegmentsHelper(JSONArray arr, PointNodeDatabase points) {
+		List<PointNode> edgeEnds = null;
+		for(int i = 0; i < arr.length(); i++) {
+			edgeEnds.add(points.getPoint(arr.getString(i)));
+		}
+		
+		return edgeEnds;
+	}
 
-    // TODO: implement supporting functionality
 
 }
