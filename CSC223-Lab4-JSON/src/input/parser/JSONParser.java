@@ -92,6 +92,7 @@ public class JSONParser
 
 		String description = parseDescription(fig.getString("Description"));
 		PointNodeDatabase points = parsePoints(fig.getJSONArray("Points"));
+		
 		SegmentNodeDatabase segments = parseSegments(fig.getJSONArray("Segments"), points);
 		
 		FigureNode root = new FigureNode(description, points, segments);
@@ -139,7 +140,7 @@ public class JSONParser
 	{
 		SegmentNodeDatabase snd = new SegmentNodeDatabase();
 		
-		for(int i = 0; i <= arr.length(); i++)
+		for(int i = 0; i < arr.length(); i++)
 		{
 			JSONObject JSONseg = arr.getJSONObject(i);
 			
