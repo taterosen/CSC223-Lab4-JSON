@@ -73,14 +73,19 @@ public class JSONParser
 	}
 	
 	/**
-	 * 
-	 * @param figure
-	 * @return 
+	 * Get the description of the figure as a String
+	 * @param figure JSONObject for the figure
+	 * @return String value for the "Description" key
 	 */
 	private String parseDescription(JSONObject figure) {
 		return figure.getString("Description");
 	}
 	
+	/**
+	 * Convert JSONObject points to PointNodes and add to database
+	 * @param arr JSONArray of points
+	 * @return PointNodeDatabase of PointNode objects for the figure
+	 */
 	private PointNodeDatabase parsePoints(JSONArray arr) {
 		PointNodeDatabase points = new PointNodeDatabase();
 		
@@ -94,6 +99,12 @@ public class JSONParser
 		return points;
 	}
 	
+	/**
+	 * 
+	 * @param arr JSONArray of JSONObject segments
+	 * @param points PointNodeDataBase of PointNode s
+	 * @return SegmentNodeDatabase for the figure
+	 */
 	private SegmentNodeDatabase parseSegments(JSONArray arr, PointNodeDatabase points) {
 		SegmentNodeDatabase snd = new SegmentNodeDatabase();
 		
