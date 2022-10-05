@@ -34,7 +34,43 @@ class JSONParserTest
 	{
 		ComponentNode node = JSONParserTest.runFigureParseTest("jsonfiles/single_triangle.json");
 
-		//assertTrue(node instanceof FigureNode);
+		assertTrue(node instanceof FigureNode);
+		
+		StringBuilder sb = new StringBuilder();
+		node.unparse(sb, 0);
+		System.out.println(sb.toString());
+	}
+	
+	@Test
+	void collinear_line_segments()
+	{
+		ComponentNode node = JSONParserTest.runFigureParseTest("jsonfiles/collinear_line_segments.json");
+
+		assertTrue(node instanceof FigureNode);
+		
+		StringBuilder sb = new StringBuilder();
+		node.unparse(sb, 0);
+		System.out.println(sb.toString());
+	}
+	
+	@Test
+	void crossing_symmetric_triangle()
+	{
+		ComponentNode node = JSONParserTest.runFigureParseTest("jsonfiles/crossing_symmetric_triangle.json");
+
+		assertTrue(node instanceof FigureNode);
+		
+		StringBuilder sb = new StringBuilder();
+		node.unparse(sb, 0);
+		System.out.println(sb.toString());
+	}
+	
+	@Test
+	void fully_connected_irregular_polygon()
+	{
+		ComponentNode node = JSONParserTest.runFigureParseTest("jsonfiles/fully_connected_irregular_polygon.json");
+
+		assertTrue(node instanceof FigureNode);
 		
 		StringBuilder sb = new StringBuilder();
 		node.unparse(sb, 0);
