@@ -1,4 +1,31 @@
-package input.parser;
+/**
+ * Parses from a JSON file to a tree and unparses in reverse
+ * JSON file looks like:
+ * { "Triangle" :
+ *   { "Description" : "triangle with three points",
+ *     "Points" : [ { "name" : "A", "x" : 0, "y" : 0 }
+ *                  { "name" : "B", "x" : 1, "y" : 1 }
+ *                  { "name" : "C", "x" : 0, "y" : 1 }
+ *                ]
+ *     "Segments" : [ { "A" : ["B", "C"] }
+ *                    { "B" : ["C", "A"] }
+ *                    { "C" : ["B", "A"] }
+ *                  ]
+ *   }
+ * }
+ *  To a tree structure like:
+ *               |-- Description
+ *               |
+ *  FigureNode --|-- PointNodeDatabase (contains a Set of PointNode, each containing a name, x, and y)
+ *               |
+ *               |-- SegmentNodeDatabase (contains a map of PointNode and PointNodeDatabase)
+ *  
+ *  @author Tate Rosen, Regan Richardson, Hanna King
+ *  @date 10/5/2022
+ */
+ 
+ package input.parser;
+
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -77,7 +104,8 @@ public class JSONParser
 	 * @param figure JSONObject for the figure
 	 * @return String value for the "Description" key
 	 */
-	private String parseDescription(JSONObject figure) {
+	private String parseDescription(JSONObject figure)
+	{
 		return figure.getString("Description");
 	}
 	
@@ -86,10 +114,12 @@ public class JSONParser
 	 * @param arr JSONArray of points
 	 * @return PointNodeDatabase of PointNode objects for the figure
 	 */
-	private PointNodeDatabase parsePoints(JSONArray arr) {
+	private PointNodeDatabase parsePoints(JSONArray arr)
+	{
 		PointNodeDatabase points = new PointNodeDatabase();
 		
-		for(int i = 0; i < arr.length(); i++) {
+		for(int i = 0; i < arr.length(); i++)
+		{
 			JSONObject JSONpoint = arr.getJSONObject(i);
 			PointNode point = new PointNode(JSONpoint.getString("name"), JSONpoint.getInt("x"),
 											JSONpoint.getInt("y"));
@@ -105,10 +135,12 @@ public class JSONParser
 	 * @param points PointNodeDataBase of PointNode s
 	 * @return SegmentNodeDatabase for the figure
 	 */
-	private SegmentNodeDatabase parseSegments(JSONArray arr, PointNodeDatabase points) {
+	private SegmentNodeDatabase parseSegments(JSONArray arr, PointNodeDatabase points)
+	{
 		SegmentNodeDatabase snd = new SegmentNodeDatabase();
 		
-		for(int i = 0; i <= arr.length(); i++) {
+		for(int i = 0; i <= arr.length(); i++)
+		{
 			JSONObject JSONseg = arr.getJSONObject(i);
 			
 			Iterator<String> segKeys = JSONseg.keys();
@@ -125,14 +157,20 @@ public class JSONParser
 		return snd;
 	}
 	
-	private List<PointNode> parseSegmentsHelper(JSONArray arr, PointNodeDatabase points) {
+	/**
+	 * 
+	 * @param arr JSONArray
+	 * @param points PointNodeDatabase of points
+	 * @return List<PointNode> of points for the segment
+	 */
+	private List<PointNode> parseSegmentsHelper(JSONArray arr, PointNodeDatabase points)
+	{
 		List<PointNode> edgeEnds = null;
-		for(int i = 0; i < arr.length(); i++) {
+		for(int i = 0; i < arr.length(); i++)
+		{
 			edgeEnds.add(points.getPoint(arr.getString(i)));
 		}
 		
 		return edgeEnds;
 	}
-
-
 }
