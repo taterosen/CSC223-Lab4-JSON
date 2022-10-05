@@ -32,6 +32,8 @@ public class FigureNode implements ComponentNode
 	/**
 	 * Unparses the parts of a FigureNode and puts them into
 	 * a given StringBuilder object.
+	 * @param sb Stringbuilder to hold final result
+	 * @param level int indent level
 	 */
 	@Override
 	public void unparse(StringBuilder sb, int level)
