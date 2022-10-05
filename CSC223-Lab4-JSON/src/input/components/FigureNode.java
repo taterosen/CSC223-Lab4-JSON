@@ -45,7 +45,6 @@ public class FigureNode implements ComponentNode
 		
 		sb.append(indent(level) + "}\n");
 		
-		System.out.println(sb.toString());
-    }
+	}
 	
 }

@@ -40,6 +40,7 @@ class JSONParserTest
 		node.unparse(sb, 0);
 		System.out.println(sb.toString());
 	}
+	
 	@Test
 	void point_test()
 	{

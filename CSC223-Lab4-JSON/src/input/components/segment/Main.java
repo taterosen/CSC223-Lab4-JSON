@@ -47,7 +47,9 @@ public class Main {
 		SegmentNodeDatabase segs = new SegmentNodeDatabase(adjLists);
 		FigureNode f = new FigureNode("Test", points, segs);
 		
-		f.unparse(new StringBuilder(), 0);
+		StringBuilder sb = new StringBuilder();
+		f.unparse(sb, 0);
+		System.out.println(sb.toString());
 	}
 
 }
