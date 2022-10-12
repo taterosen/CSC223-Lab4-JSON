@@ -120,17 +120,15 @@ public class SegmentNodeDatabase implements ComponentNode {
 		sb.append(indent(level) + "Segments:\n" + indent(level) + "{\n");
 		
 		for(PointNode p : this._adjLists.keySet()) {
-			if (p != null) {
+			
 				sb.append(indent(level + 1) + p.getName() + " : ");
 			
 				for(PointNode val : this._adjLists.get(p)) {
-					if(val != null) {
 						sb.append(val.getName() + "  ");
-					}
 				}
+				
 				sb.append("\n");
 			}
-		}
 		
 		sb.append(indent(level) + "}\n");
 	}

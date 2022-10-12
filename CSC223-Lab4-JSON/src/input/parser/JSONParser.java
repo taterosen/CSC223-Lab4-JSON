@@ -93,9 +93,9 @@ public class JSONParser
 		
 		SegmentNodeDatabase segments = parseSegments(fig.getJSONArray(JSON_Constants.JSON_SEGMENTS), points);
 		
-		FigureNode root = new FigureNode(description, points, segments);
+		 
 		
-		return root;
+		return new FigureNode(description, points, segments);
 	}
 	
 	/**
